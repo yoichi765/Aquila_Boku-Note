@@ -1,0 +1,8 @@
+SetEnvIf Request_URI ".*" Ngx_Cache_NoCacheMode=off
+SetEnvIf Request_URI ".*" Ngx_Cache_AllCacheMode
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ http://localhost:32768/ [P,L]
+    RewriteRule ^webhook$ http://localhost:32768/webhook [P,L]
+</IfModule>
